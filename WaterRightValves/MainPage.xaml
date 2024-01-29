@@ -18,8 +18,14 @@
                 SemanticProperties.HeadingLevel="Level2"
                 Text="Intended for Dealer Use only&#10;Use this app to connect&#10;and install your WiFi unit." />
             <StackLayout>
-                <Label HorizontalOptions="Center" Text="Choose your brand" />
-                <Picker x:Name="brandPicker" Title="Select a Brand">
+                <Label
+                    x:Name="selectedBrand"
+                    HorizontalOptions="Center"
+                    Text="Choose your brand" />
+                <Picker
+                    x:Name="brandPicker"
+                    Title="Select a Brand"
+                    SelectedIndexChanged="OnProductSelect">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Evolve</x:String>

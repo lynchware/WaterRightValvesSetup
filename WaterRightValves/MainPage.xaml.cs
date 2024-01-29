@@ -1,12 +1,15 @@
-﻿namespace WaterRightValves
+﻿using WaterRightValves.ViewModel;
+
+namespace WaterRightValves
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
 
-        public MainPage()
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -19,6 +22,17 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        void OnProductSelect(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if(selectedIndex != -1)
+            {
+                selectedBrand.Text = (string)picker.ItemsSource[selectedIndex];
+            }
         }
     }
 
