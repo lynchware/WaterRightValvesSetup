@@ -35,12 +35,6 @@
                     </Picker.ItemsSource>
                 </Picker>
             </StackLayout>
-            <Button
-                x:Name="CounterBtn"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
         </VerticalStackLayout>
     </ScrollView>
 

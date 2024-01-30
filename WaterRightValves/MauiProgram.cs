@@ -30,7 +30,7 @@ namespace WaterRightValves
             builder.Services.AddTransient<MACViewModel>();
             builder.Services.AddTransient<ConfirmationViewModel>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

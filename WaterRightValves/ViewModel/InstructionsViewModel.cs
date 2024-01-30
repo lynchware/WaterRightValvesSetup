@@ -4,7 +4,7 @@ using WaterRightValves.Pages;
 
 namespace WaterRightValves.ViewModel
 {
-    [QueryProperty("Brand", "rand")]
+    [QueryProperty("Brand", "Brand")]
     public partial class InstructionsViewModel : ObservableObject
     {
         [ObservableProperty]
