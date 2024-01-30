@@ -11,8 +11,34 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
+            Margin="0,0,0,40"
+            Padding="20,5"
+            Background="{StaticResource Primary20}"
+            FontSize="Large"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span
+                        FontAttributes="Bold"
+                        Text="STEP 5: "
+                        TextColor="{StaticResource Gray600}" />
+                    <Span Text="Connection Confirmation and Test" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+            <Button
+                Padding="15,5"
+                Command="{Binding BackClickedCommand}"
+                Text="Back" />
+            <Label
+                Margin="1,0"
+                Padding="15"
+                FontSize="Medium"
+                Text="Confirmation"
+                VerticalOptions="End" />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

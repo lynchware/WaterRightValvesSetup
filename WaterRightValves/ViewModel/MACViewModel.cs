@@ -19,7 +19,7 @@ namespace WaterRightValves.ViewModel
         [RelayCommand]
         async Task OnNextClicked()
         {
-            await Shell.Current.GoToAsync($"{nameof(MACAddress)}?brand={brand}");
+            await Shell.Current.GoToAsync($"{nameof(WiFiSelection)}?brand={brand}");
         }
     }
 }

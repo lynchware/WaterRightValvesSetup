@@ -18,14 +18,12 @@ namespace WaterRightValves
                 });
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<WiFiSelection>();
-            builder.Services.AddTransient<Instructions>();
             builder.Services.AddTransient<WiFiPassword>();
             builder.Services.AddTransient<MACAddress>();
             builder.Services.AddTransient<Confirmation>();
 
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<WiFiSelectViewModel>();
-            builder.Services.AddTransient<InstructionsViewModel>();
             builder.Services.AddTransient<WiFiPassViewModel>();
             builder.Services.AddTransient<MACViewModel>();
             builder.Services.AddTransient<ConfirmationViewModel>();

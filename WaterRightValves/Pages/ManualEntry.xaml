@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WaterRightValves.Pages.ManualEntry"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ManualEntry">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="Please Enter MAC Address."
+            VerticalOptions="Center" />
+        <Label
+            Margin="0,0,0,40"
+            Padding="20,5"
+            Background="{StaticResource Primary20}"
+            FontSize="Large"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span
+                        FontAttributes="Bold"
+                        Text="Please Enter MAC Address "
+                        TextColor="{StaticResource Gray500}" />
+                    <Span FontSize="Small" Text="The MAC Address can be found in the Valve on the side of the network card." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Entry
+            x:Name="macAddressEntry"
+            Placeholder="MAC Address"
+            Text="{Binding MacAddress}" />
+        <!--Submit Button takes MacAddress and sends it to onMacAddressSubmit codebehind method-->
+        <Button
+            Clicked="OnMacAddressSubmit"
+            Text="Submit" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -8,7 +8,6 @@ namespace WaterRightValves
         {
             InitializeComponent();
 
-            Routing.RegisterRoute(nameof(Instructions), typeof(Instructions));
             Routing.RegisterRoute(nameof(MACAddress), typeof(MACAddress));
             Routing.RegisterRoute(nameof(WiFiSelection), typeof(WiFiSelection));
             Routing.RegisterRoute(nameof(WiFiPassword), typeof(WiFiPassword));

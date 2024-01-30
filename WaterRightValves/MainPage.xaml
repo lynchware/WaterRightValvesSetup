@@ -2,40 +2,48 @@
 <ContentPage
     x:Class="WaterRightValves.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
+    Title="Instructions"
+    x:DataType="viewmodels:MainViewModel">
     <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
-
+        <VerticalStackLayout>
             <Label
-                SemanticProperties.HeadingLevel="Level1"
-                Style="{StaticResource Headline}"
-                Text="Wripli Installer App" />
-
-            <Label
-                HorizontalOptions="Center"
-                LineBreakMode="WordWrap"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="Intended for Dealer Use only&#10;Use this app to connect&#10;and install your WiFi unit." />
-            <StackLayout>
+                Margin="0,0,0,40"
+                Padding="20,5"
+                Background="{StaticResource Primary20}"
+                FontSize="Large"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            Text="STEP 1: "
+                            TextColor="{StaticResource Gray600}" />
+                        <Span Text="&#10;Enable Broadcast Mode for" />
+                        <Span Text="{Binding Brand}" TextColor="{StaticResource Primary}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Button
+                    Padding="15,5"
+                    Command="{Binding BackClickedCommand}"
+                    Text="Back" />
                 <Label
-                    x:Name="selectedBrand"
-                    HorizontalOptions="Center"
-                    Text="Choose your brand" />
-                <Picker
-                    x:Name="brandPicker"
-                    Title="Select a Brand"
-                    SelectedIndexChanged="OnProductSelect">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Evolve</x:String>
-                            <x:String>WaterCare</x:String>
-                            <x:String>AO Smith</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-            </StackLayout>
+                    Margin="1,0"
+                    Padding="15"
+                    FontSize="Medium"
+                    Text="Instructions"
+                    VerticalOptions="End" />
+                <Button
+                    Padding="15,0"
+                    Command="{Binding NextClickedCommand}"
+                    Text="Next" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
-    </ScrollView>
 
+    </ScrollView>
 </ContentPage>

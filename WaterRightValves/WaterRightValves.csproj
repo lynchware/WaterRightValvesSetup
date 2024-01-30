@@ -73,10 +73,10 @@
 	  <MauiXaml Update="Pages\Confirmation.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Instructions.xaml">
+	  <MauiXaml Update="Pages\MACAddress.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\MACAddress.xaml">
+	  <MauiXaml Update="Pages\ManualEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\WiFiPassword.xaml">
