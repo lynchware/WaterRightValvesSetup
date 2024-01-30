@@ -3,7 +3,9 @@
     x:Class="WaterRightValves.Pages.MACAddress"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="MACAddress">
+    xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
+    Title="MACAddress"
+    x:DataType="viewmodels:MACViewModel">
     <VerticalStackLayout>
         <Label
             HorizontalOptions="Center"

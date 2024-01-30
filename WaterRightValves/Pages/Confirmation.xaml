@@ -3,7 +3,12 @@
     x:Class="WaterRightValves.Pages.Confirmation"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="ConfirmedConnection">
+    xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
+    Title="ConfirmedConnection"
+    x:DataType="viewmodels:ConfirmationViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:ConfirmationViewModel />
+    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label
             HorizontalOptions="Center"

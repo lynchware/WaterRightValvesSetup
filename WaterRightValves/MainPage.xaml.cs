@@ -1,4 +1,5 @@
-﻿using WaterRightValves.ViewModel;
+﻿using WaterRightValves.Pages;
+using WaterRightValves.ViewModel;
 
 namespace WaterRightValves
 {
@@ -28,11 +29,20 @@ namespace WaterRightValves
         {
             var picker = (Picker)sender;
             int selectedIndex = picker.SelectedIndex;
-
             if(selectedIndex != -1)
             {
-                selectedBrand.Text = (string)picker.ItemsSource[selectedIndex];
+                var brand = (string)picker.ItemsSource[selectedIndex];
+                if(selectedIndex == 1)
+                {
+                    selectedBrand.Text = (string)picker.ItemsSource[selectedIndex];
+                }
+                else
+                {
+                    Shell.Current.GoToAsync($"{nameof(Instructions)}?brand={brand}");
+
+                }
             }
+
         }
     }
 
