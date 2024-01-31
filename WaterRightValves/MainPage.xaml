@@ -4,7 +4,6 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
-    Title="Instructions"
     x:DataType="viewmodels:MainViewModel">
     <ScrollView>
         <VerticalStackLayout>
@@ -16,14 +15,14 @@
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
                 VerticalOptions="Center">
+                
                 <Label.FormattedText>
                     <FormattedString>
                         <Span
                             FontAttributes="Bold"
-                            Text="STEP 1: "
-                            TextColor="{StaticResource Gray600}" />
-                        <Span Text="&#10;Enable Broadcast Mode for" />
-                        <Span Text="{Binding Brand}" TextColor="{StaticResource Primary}" />
+                            Text="Enable Broadcast Mode "
+                            TextColor="{StaticResource Gray500}" />
+                        <Span FontSize="Small" Text="&#10;Follow the below instructions to Enable Broadcast Mode on the device " />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
@@ -31,7 +30,8 @@
                 <Button
                     Padding="15,5"
                     Command="{Binding BackClickedCommand}"
-                    Text="Back" />
+                    Text="Back"
+                    WidthRequest="80" />
                 <Label
                     Margin="1,0"
                     Padding="15"
@@ -41,7 +41,8 @@
                 <Button
                     Padding="15,0"
                     Command="{Binding NextClickedCommand}"
-                    Text="Next" />
+                    Text="Next"
+                    WidthRequest="80" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
 

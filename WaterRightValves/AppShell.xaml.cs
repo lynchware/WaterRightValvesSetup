@@ -12,6 +12,7 @@ namespace WaterRightValves
             Routing.RegisterRoute(nameof(WiFiSelection), typeof(WiFiSelection));
             Routing.RegisterRoute(nameof(WiFiPassword), typeof(WiFiPassword));
             Routing.RegisterRoute(nameof(Confirmation), typeof(Confirmation));
+            Routing.RegisterRoute(nameof(ManualEntry), typeof(ManualEntry));
         }
     }
 }

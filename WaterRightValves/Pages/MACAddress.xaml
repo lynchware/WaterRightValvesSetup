@@ -4,45 +4,61 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
-    Title="MACAddress"
     x:DataType="viewmodels:MACViewModel">
     <ContentPage.BindingContext>
         <viewmodels:MACViewModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label
-            Margin="0,0,0,40"
+            Margin="0,0,0,20"
             Padding="20,5"
             Background="{StaticResource Primary20}"
+            FontAttributes="Bold"
             FontSize="Large"
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Center"
-            VerticalOptions="Center">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span
-                        FontAttributes="Bold"
-                        Text="STEP 2: "
-                        TextColor="{StaticResource Gray600}" />
-                    <Span Text="Connect To Valve" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+            Text="Attempting to connect to Valve"
+            TextColor="{StaticResource Gray500}"
+            VerticalOptions="Center" />
+        <Label
+            Margin="20"
+            Padding="2,5,0,20"
+            FontSize="Medium"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            Text="Please wait while we aquire the MAC address of your valve."
+            VerticalOptions="Center" />
+        <ProgressBar
+            BackgroundColor="{StaticResource Primary50}"
+            Progress="{Binding AquireMacProgress}"
+            ProgressColor="{StaticResource Secondary}"
+            ScaleY="4"
+            WidthRequest="280" />
+        <Label
+            Margin="5"
+            Padding="5"
+            FontSize="Medium"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            Text="{Binding AquiringLabel}"
+            VerticalOptions="Center" />
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
             <Button
                 Padding="15,5"
                 Command="{Binding BackClickedCommand}"
-                Text="Back" />
+                Text="Back"
+                WidthRequest="80" />
             <Label
                 Margin="1,0"
                 Padding="15"
                 FontSize="Medium"
-                Text="Aquiring MAC Address"
+                Text="{Binding AquiringLabel}"
                 VerticalOptions="End" />
             <Button
                 Padding="15,0"
                 Command="{Binding NextClickedCommand}"
-                Text="Next" />
+                Text="Next"
+                WidthRequest="80" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

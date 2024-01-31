@@ -19,7 +19,7 @@ namespace WaterRightValves.ViewModel
         [RelayCommand]
         async Task OnNextClicked()
         {
-            await Shell.Current.GoToAsync($"{nameof(Confirmation)}?brand={brand}");
+            await Shell.Current.GoToAsync(nameof(Confirmation));
         }
     }
 }

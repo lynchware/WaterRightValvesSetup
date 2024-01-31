@@ -3,12 +3,9 @@
     x:Class="WaterRightValves.Pages.ManualEntry"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="ManualEntry">
+    xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
+    x:DataType="viewmodels:ManualEntryViewModel">
     <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Please Enter MAC Address."
-            VerticalOptions="Center" />
         <Label
             Margin="0,0,0,40"
             Padding="20,5"
@@ -23,17 +20,36 @@
                         FontAttributes="Bold"
                         Text="Please Enter MAC Address "
                         TextColor="{StaticResource Gray500}" />
-                    <Span FontSize="Small" Text="The MAC Address can be found in the Valve on the side of the network card." />
+                    <Span Text="&#10;The MAC Address can be found in the Valve on the side of the network card." />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
         <Entry
             x:Name="macAddressEntry"
+            Margin="25"
+            FontSize="Large"
             Placeholder="MAC Address"
-            Text="{Binding MacAddress}" />
-        <!--Submit Button takes MacAddress and sends it to onMacAddressSubmit codebehind method-->
-        <Button
-            Clicked="OnMacAddressSubmit"
-            Text="Submit" />
+            Text="{Binding MacAddress, Mode=TwoWay}"
+            TextChanged="macAddressEntry_TextChanged" />
+        <!--  Submit Button takes MacAddress and sends it to onMacAddressSubmit codebehind method  -->
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+            <Button
+                Margin="10"
+                Command="{Binding BackClickedCommand}"
+                Text="Back"
+                WidthRequest="80" />
+            <Label
+                Padding="5,25"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Text="Enter MAC Address"
+                VerticalOptions="End" />
+            <Button
+                Margin="10"
+                Command="{Binding MacAddressSubmitCommand}"
+                Text="Submit"
+                WidthRequest="80" />
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </ContentPage>

@@ -21,12 +21,17 @@ namespace WaterRightValves
             builder.Services.AddTransient<WiFiPassword>();
             builder.Services.AddTransient<MACAddress>();
             builder.Services.AddTransient<Confirmation>();
+            builder.Services.AddTransient<ManualEntry>();
 
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<WiFiSelectViewModel>();
             builder.Services.AddTransient<WiFiPassViewModel>();
             builder.Services.AddTransient<MACViewModel>();
             builder.Services.AddTransient<ConfirmationViewModel>();
+            builder.Services.AddTransient<ManualEntryViewModel>();
+
+            //builder.Services.AddSingleton<IWiFiService, WiFiService>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

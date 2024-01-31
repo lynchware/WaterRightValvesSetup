@@ -22,17 +22,48 @@
                 <FormattedString>
                     <Span
                         FontAttributes="Bold"
-                        Text="STEP 3: "
-                        TextColor="{StaticResource Gray600}" />
-                    <Span Text="Connect To WiFi" />
+                        Text="Connect To WiFi"
+                        TextColor="{StaticResource Gray500}" />
+                    <Span Text="&#10;Select the WiFi network you want to connect to" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
+        <Label
+            Margin="0,0,0,20"
+            Padding="20,5"
+            FontSize="Small"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span FontAttributes="Italic" Text="Current Mac Address" />
+                    <Span Text="{Binding MacAddress}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <StackLayout
+            Margin="0,0,0,20"
+            Padding="20,5"
+            Background="{StaticResource Primary20}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center">
+            <Label
+                FontSize="Small"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="Select WiFi Network" />
+            <Picker
+                Title="Select WiFi Network"
+                ItemsSource="{Binding WiFiNetworks}"
+                SelectedItem="{Binding SelectedWiFiNetwork}" />
+        </StackLayout>
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
             <Button
                 Padding="15,5"
                 Command="{Binding BackClickedCommand}"
-                Text="Back" />
+                Text="Back"
+                WidthRequest="80" />
             <Label
                 Margin="1,0"
                 Padding="15"
@@ -42,7 +73,8 @@
             <Button
                 Padding="15,0"
                 Command="{Binding NextClickedCommand}"
-                Text="Next" />
+                Text="Next"
+                WidthRequest="80" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

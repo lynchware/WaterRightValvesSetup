@@ -22,9 +22,8 @@
                 <FormattedString>
                     <Span
                         FontAttributes="Bold"
-                        Text="STEP 5: "
-                        TextColor="{StaticResource Gray600}" />
-                    <Span Text="Connection Confirmation and Test" />
+                        Text="Connection Confirmation and Test"
+                        TextColor="{StaticResource Gray500}" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
@@ -32,7 +31,8 @@
             <Button
                 Padding="15,5"
                 Command="{Binding BackClickedCommand}"
-                Text="Back" />
+                Text="Back"
+                WidthRequest="80" />
             <Label
                 Margin="1,0"
                 Padding="15"
