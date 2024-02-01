@@ -38,7 +38,7 @@
             Margin="5"
             Padding="5"
             FontSize="Medium"
-            HorizontalOptions="FillAndExpand"
+            HorizontalOptions="CenterAndExpand"
             HorizontalTextAlignment="Center"
             Text="{Binding AquiringLabel}"
             VerticalOptions="Center" />

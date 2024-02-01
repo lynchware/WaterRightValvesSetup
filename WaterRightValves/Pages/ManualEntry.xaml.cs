@@ -5,18 +5,29 @@ namespace WaterRightValves.Pages;
 
 public partial class ManualEntry : ContentPage
 {
-	private string _previousInput = string.Empty;
     public ManualEntry(ManualEntryViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;
     }
 
-    private void macAddressEntry_TextChanged(object sender, TextChangedEventArgs e)
+    public void macAddressEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
         var entry = (Entry)sender;
-        entry.Text = FormatMacAddress(e.NewTextValue);
+        var formattedText = FormatMacAddress(entry.Text);
+
+        // Disconnect the event handler to prevent an infinite loop
+        entry.TextChanged -= macAddressEntry_TextChanged;
+
+        entry.Text = formattedText;
+
+        // Reconnect the event handler
+        entry.TextChanged += macAddressEntry_TextChanged;
+
+        // Set the cursor position to the end
+        entry.CursorPosition = entry.Text.Length;
     }
+
 
     private string FormatMacAddress(string input)
     {
