@@ -24,12 +24,13 @@ namespace WaterRightValves.ViewModel
         }
         public bool IsAndroid => DeviceInfo.Platform == DevicePlatform.Android;
         public bool IsiOS => DeviceInfo.Platform == DevicePlatform.iOS;
+
         [RelayCommand]
-        private void OpenWiFiSettings()
+        void OpenWiFiSettings()
         {
             _wiFiService.OpenWiFiSettings();
         }
-            [RelayCommand]
+        [RelayCommand]
         async Task OnBackClicked()
         {
             await Shell.Current.GoToAsync("..");

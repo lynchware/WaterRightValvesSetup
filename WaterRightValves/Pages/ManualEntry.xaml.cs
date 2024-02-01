@@ -5,7 +5,8 @@ namespace WaterRightValves.Pages;
 
 public partial class ManualEntry : ContentPage
 {
-	public ManualEntry(ManualEntryViewModel vm)
+	private string _previousInput = string.Empty;
+    public ManualEntry(ManualEntryViewModel vm)
 	{
 		InitializeComponent();
         BindingContext = vm;

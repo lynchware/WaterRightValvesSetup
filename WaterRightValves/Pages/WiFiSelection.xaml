@@ -6,9 +6,6 @@
     xmlns:viewmodels="clr-namespace:WaterRightValves.ViewModel"
     Title="WiFiSelection"
     x:DataType="viewmodels:WiFiSelectViewModel">
-    <ContentPage.BindingContext>
-        <viewmodels:WiFiSelectViewModel />
-    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label
             Margin="0,0,0,40"
@@ -60,7 +57,7 @@
                 ItemsSource="{Binding WiFiNetworks}"
                 SelectedItem="{Binding SelectedWiFiNetwork}" />
             <Button
-                Command="{Binding OpenWifiSettingsCommand}"
+                Command="{Binding OpenWiFiSettingsCommand}"
                 IsVisible="{Binding IsiOS}"
                 Text="WiFi Settings" />
         </StackLayout>

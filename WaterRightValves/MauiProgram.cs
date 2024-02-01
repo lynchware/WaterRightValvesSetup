@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using WaterRightValves.Services;
-using WaterRightValves.Interfaces;
 using WaterRightValves.Pages;
 using WaterRightValves.ViewModel;
 
@@ -32,7 +30,7 @@ namespace WaterRightValves
             builder.Services.AddTransient<ConfirmationViewModel>();
             builder.Services.AddTransient<ManualEntryViewModel>();
 
-            builder.Services.AddSingleton<IWiFiService, WiFiService>();
+            //builder.Services.AddSingleton<IWiFiService, WiFiService>();
 
 #if DEBUG
             builder.Logging.AddDebug();
