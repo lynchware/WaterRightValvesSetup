@@ -2,11 +2,13 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using WaterRightValves.Pages;
+using WaterRightValves.Interfaces;
 namespace WaterRightValves.ViewModel
 {
     [QueryProperty("MacAddress", "MacAddress")]
     public partial class WiFiSelectViewModel : ObservableObject
     {
+        private readonly IWiFiService _wiFiService;
         [ObservableProperty]
         ObservableCollection<string> wiFiNetworks;
 
@@ -16,16 +18,16 @@ namespace WaterRightValves.ViewModel
         [ObservableProperty]
         string macAddress;
 
-        public WiFiSelectViewModel()
+        public WiFiSelectViewModel(IWiFiService wiFiService)
         {
-            WiFiNetworks = new ObservableCollection<string>(
-                CWInterface.InterfaceNames
-            ); 
+            _wiFiService = wiFiService;
         }
+        public bool IsAndroid => DeviceInfo.Platform == DevicePlatform.Android;
+        public bool IsiOS => DeviceInfo.Platform == DevicePlatform.iOS;
         [RelayCommand]
-        private void LoadWiFiNetworks()
+        private void OpenWiFiSettings()
         {
-
+            _wiFiService.OpenWiFiSettings();
         }
             [RelayCommand]
         async Task OnBackClicked()

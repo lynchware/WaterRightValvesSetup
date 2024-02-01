@@ -52,12 +52,22 @@
                 FontSize="Small"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
+                IsVisible="{Binding IsAndroid}"
                 Text="Select WiFi Network" />
             <Picker
                 Title="Select WiFi Network"
+                IsVisible="{Binding IsAndroid}"
                 ItemsSource="{Binding WiFiNetworks}"
                 SelectedItem="{Binding SelectedWiFiNetwork}" />
+            <Button
+                Command="{Binding OpenWifiSettingsCommand}"
+                IsVisible="{Binding IsiOS}"
+                Text="WiFi Settings" />
         </StackLayout>
+
+
+
+
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
             <Button
                 Padding="15,5"

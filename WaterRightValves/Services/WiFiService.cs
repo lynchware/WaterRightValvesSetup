@@ -1,38 +1,62 @@
-﻿////#if ANDROID
-//using Android.Content;
-//using Android.Net.Wifi;
-//using Android.App;
-//using Application = Microsoft.Maui.ApplicationModel;
+﻿#if ANDROID
+using Microsoft.Maui;
+using WaterRightValves.Interfaces;
 
-//[assembly: Dependency(typeof(WiFiService))]
-//namespace WaterRightValves.Services
-//{
-//    public class WiFiService : BroadcastReceiver, IWiFiService
-//    {
-//        private readonly WifiManager _wifiManager;
-//        private readonly Context _context;
-//        public event EventHandler<IList<string>> ScanResultsAvailable;
+namespace WaterRightValves.Services
+{
+    public class WiFiService : BroadcastReceiver, IWiFiService
+    {
+        private WifiManager wifiManager;
 
-//        public WiFiService()
-//        {
-//            _context = Application.CurrentActivity ?? throw new InvalidOperationException("CurrentActivity is null");
-//            _wifiManager = (WifiManager)_context.GetSystemService(Context.WifiService);
-//        }
+        public WifiScanReceiver(WifiManager wifiManager)
+        {
+            this.wifiManager = wifiManager;
+        }
+        public override void OnReceive(Context context, Intent intent)
+        {
+            if(intent.Action.Equals(WifiManager.ScanResultsAvailableAction))
+            {
+                List<ScanResult> scanResults = wifiManager.ScanResults.ToList<ScanResult>();
+                if(scanResults != null)
+                {
+                    foreach(ScanResult scanResult in scanResults)
+                    {
+                        Console.WriteLine(scanResult.Ssid.ToString());
+                    }
+                }
+            }
+        }
+    }
 
-//        public override void OnReceive(Context context, Intent intent)
-//        {
-//            if (intent.Action.Equals(WifiManager.ScanResultsAvailableAction))
-//            {
-//                IList<string> results = _wifiManager.ScanResults.Select(scanResult => scanResult.Ssid).ToList();
-//                ScanResultsAvailable?.Invoke(this, results);
-//            }
-//        }
+#endif
+#if IOS
+using UIKit;
+using NetworkExtension;
+using Foundation;
+using WaterRightValves.Services;
+using System.Threading.Tasks;
+using WaterRightValves.Interfaces;
 
-//        public void StartScan()
-//        {
-//            _context.RegisterReceiver(this, new IntentFilter(WifiManager.ScanResultsAvailableAction));
-//            _wifiManager.StartScan();
-//        }
-//   }
-//}
-////#endif
+[assembly: Dependency(typeof(WiFiService))]
+namespace WaterRightValves.Services
+{
+    public class WiFiService : IWiFiService
+    {
+        public async Task ConfigureHotspotAsync(string ssid, string passphrase)
+        {
+            var configuration = new NEHotspotConfiguration(ssid, passphrase, false);
+            await NEHotspotConfigurationManager.SharedManager.ApplyConfigurationAsync(configuration);
+        }
+        public void OpenWiFiSettings()
+        {
+            var url = new NSUrl(UIApplication.OpenSettingsUrlString);
+            if(UIApplication.SharedApplication.CanOpenUrl(url))
+            {
+                UIApplication.SharedApplication.OpenUrl(url);
+            }
+        }
+    }
+
+}
+
+#endif
