@@ -8,7 +8,8 @@ namespace WaterRightValves.Interfaces
 {
     public interface IWiFiService
     {
-        Task ConfigureHotspotAsync(string ssid, string passphrase);
-        void OpenWiFiSettings();
+        Task<List<string>> ScanWiFiNetworksAsync();
+        //Task ConfigureHotspotAsync(string ssid, string passphrase);
+        //void OpenWiFiSettings();
     }
 }
